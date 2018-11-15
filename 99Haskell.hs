@@ -1,4 +1,4 @@
-module Test where
+module Practice where
 
 myLast [a] = a
 myLast [] = error "nothing"
@@ -36,6 +36,8 @@ takeLastOut :: [a] -> [a]
 takeLastOut [b] = []
 takeLastOut (x:xs) = [x] ++ takeLastOut xs
 
+
+--0.6--
 isPalindrome ::(Eq a) => [a] -> Bool
 isPalindrome [] = True
 isPalindrome [a] = True
@@ -43,7 +45,7 @@ isPalindrome (x:xs)
   | [x] == getLast (x:xs) = isPalindrome (takeLastOut xs)
   | otherwise = False
 
-
+--0.8--
 compress ::(Eq a)=> [a] -> [a]
 compress [] = []
 compress [a] = [a]
@@ -51,7 +53,11 @@ compress (x:y:ys)
   | x == y = compress (y:ys)
   | otherwise = x : (compress (y:ys))
 
-
+--1.4--
+dupli::[a]->[a]
+dupli [] = []
+dupli [a] = [a,a]
+dupli (x:xs) = x:x:(dupli(xs))
 
 
 
