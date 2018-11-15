@@ -1,1 +1,1 @@
-Daily Haskell Practice for good fun
+#Daily Haskell Practice for Good Fun
