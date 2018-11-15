@@ -59,6 +59,12 @@ dupli [] = []
 dupli [a] = [a,a]
 dupli (x:xs) = x:x:(dupli(xs))
 
+--1.5--
+repli::[a]->Int->[a]
+repli [] n = error "empty list"
+repli (x) 0 = []
+repli [a] b = a : (repli [a] (b-1))
+repli (x:xy) n = (repli [x] n) ++ (repli (xy) n)
 
 
 
