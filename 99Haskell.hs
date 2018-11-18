@@ -1,5 +1,6 @@
 module Practice where
 
+
 myLast [a] = a
 myLast [] = error "nothing"
 myLast (x:xs) = myLast xs
@@ -67,10 +68,40 @@ repli [a] b = a : (repli [a] (b-1))
 repli (x:xy) n = (repli [x] n) ++ (repli (xy) n)
 
 
+--1.6--
+drop ::[a]->Int->[a]
+drop [] n = error "empty list"
+drop (x) 0 = (x)
+drop (x:xs) 1 = (xs)
+drop (x:xs) n = x : (Practice.drop (xs) (n-1))
+
+
+--1.7--
+split::[a]->Int->([a],[a])
+split [] n = error "empty list"
+split (x:xs) n
+  | n>0 = (x:xz, yz)
+  | otherwise = ([],xs)
+  where (xz,yz) = split xs (n-1)
+
+
+--1.8--
+slice::[a]->Int->Int->[a]
+slice [] b c = error "empty list"
+slice (x:xs) b c
+  | c<0||b>myLength (x:xs)||c < b = error "the end point and start point has error"
+  | b>0 = slice xs (b-1) (c-1)
+  | b==0 && c>0 = x:(slice xs b (c-1))
+  | b==0 && c==0 = [x]
+  | otherwise = []
 
 
 
 
 
 
-  
+
+
+
+
+
